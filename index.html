@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ===== 分享連結時跳出的縮圖與標題資訊 (Open Graph) ===== -->
+    <meta property="og:title" content="快訊！全台首家上市檳榔公司">
+    <meta property="og:description" content="勇於創造檳榔奇蹟！即刻點擊查看上市公司完整招股說明與股價資訊。">
+    <!-- ⚠️ 請將下方的網址替換成你的真實 GitHub 圖片完整網址 ⚠️ -->
+    <meta property="og:image" content="https://postcareer.github.io/PostCareer/IMG_0463.jpeg">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter / 靜態卡片邊框樣式支援 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="快訊！全台首家上市檳榔公司">
+    <meta name="twitter:description" content="勇於創造檳榔奇蹟！即刻點擊查看上市公司完整招股說明與股價資訊。">
+    <meta name="twitter:image" content="https://postcareer.github.io/PostCareer/IMG_0463.jpeg">
+
     <title>快訊！全台首家上市檳榔公司</title>
+    
     <style>
         * {
             margin: 0;
@@ -85,7 +100,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        /* 第二張圖的隱藏/顯示狀態 */
+        /* 第二頁梗圖隱藏 */
         #prank-page {
             display: none;
             text-align: center;
@@ -109,7 +124,7 @@
             快訊！全台首家上市檳榔公司
         </div>
         <div class="image-wrapper">
-            <!-- 請將 src 替換為你的第一張檳榔攤圖片檔名或連結 -->
+            <!-- 檳榔攤圖片 -->
             <img src="IMG_0463.jpeg" alt="強勇連鎖加盟檳榔攤">
         </div>
         <div class="news-content">
@@ -118,15 +133,14 @@
         </div>
     </div>
 
-    <!-- 第二頁：點進去顯示的梗圖 -->
+    <!-- 第二頁：梗圖 -->
     <div id="prank-page">
-        <!-- 請將 src 替換為你的第二張梗圖檔名或連結 -->
-        <img src="IMG_0453.png" alt="梗圖">
+        <!-- 梗圖檔名（若你的梗圖檔名是 IMG_0464.jpeg 請自行更換） -->
+        <img src="IMG_0464.jpeg" alt="梗圖">
     </div>
 
     <script>
         function showPrank() {
-            // 隱藏封面，顯示梗圖
             document.getElementById('cover-page').style.display = 'none';
             document.getElementById('prank-page').style.display = 'block';
         }
