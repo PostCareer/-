@@ -3,120 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【最新快訊】台中市明日停止上班上課</title>
-    
-    <!-- LINE / FB 分享時顯示的預覽文字與卡片 -->
-    <meta property="og:title" content="【颱風快訊】台中市明日宣布停止上班停止上課！">
-    <meta property="og:description" content="因應颱風最新動向與風雨預測，台中市政府剛剛正式宣布明日全市停止上班、停止上課...">
-    <meta property="og:type" content="website">
-
+    <title>快訊！全台首家上市檳榔公司</title>
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+            background-color: #f4f4f9;
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding: 12px;
-        }
-        .news-card {
-            background-color: #1e1e1e;
-            max-width: 500px;
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-            border: 1px solid #333;
-        }
-        .header-bar {
-            background-color: #cc0000;
-            color: #ffffff;
-            padding: 8px 16px;
-            font-size: 14px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* 封面容器 */
+        .card-container {
+            max-width: 600px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .card-container:hover {
+            transform: scale(1.02);
+        }
+
+        /* 標題樣式 */
+        .news-title {
+            background-color: #e60000;
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 15px 20px;
+            text-align: center;
             letter-spacing: 1px;
         }
-        .header-bar .live-badge {
-            background-color: #ffffff;
-            color: #cc0000;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 12px;
-            animation: blink 1.2s infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-        .news-content {
-            padding: 20px 16px;
-        }
-        .news-title {
-            color: #ff4d4d;
-            font-size: 22px;
-            font-weight: 900;
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
-        .news-time {
-            font-size: 12px;
-            color: #888888;
-            margin-bottom: 16px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 8px;
-        }
-        .img-container {
+
+        /* 圖片區域 */
+        .image-wrapper {
             width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #000;
+            position: relative;
         }
-        .img-container img {
+
+        .image-wrapper img {
             width: 100%;
             height: auto;
             display: block;
         }
-        .footer-bar {
-            background-color: #2a2a2a;
-            padding: 10px 16px;
-            font-size: 12px;
-            color: #aaa;
+
+        /* 內容與引導按鈕 */
+        .news-content {
+            padding: 20px;
             text-align: center;
+        }
+
+        .news-desc {
+            font-size: 16px;
+            color: #333333;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .click-btn {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* 第二張圖的隱藏/顯示狀態 */
+        #prank-page {
+            display: none;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        #prank-page img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 
-<div class="news-card">
-    <div class="header-bar">
-        <span>🚨 突發新聞快訊</span>
-        <span class="live-badge">LIVE 即時</span>
-    </div>
-    
-    <div class="news-content">
-        <div class="news-title">快訊／台中市明日停止上班、停止上課！</div>
-        <div class="news-time">發布時間：2026年9月3日 21:55 即時報導</div>
-        
-        <div class="img-container">
-            <!-- 記得確認圖片檔名是否與你上傳的照片檔名一致（例：news.jpg） -->
-            <img src="news.jpg" alt="颱風快訊最新畫面">
+    <!-- 第一頁：新聞封面 -->
+    <div id="cover-page" class="card-container" onclick="showPrank()">
+        <div class="news-title">
+            快訊！全台首家上市檳榔公司
+        </div>
+        <div class="image-wrapper">
+            <!-- 請將 src 替換為你的第一張檳榔攤圖片檔名或連結 -->
+            <img src="binglang.jpg" alt="強勇連鎖加盟檳榔攤">
+        </div>
+        <div class="news-content">
+            <p class="news-desc">勇於創造檳榔奇蹟！即刻點擊查看上市公司完整招股說明與股價資訊。</p>
+            <div class="click-btn">點擊查看詳情 ➔</div>
         </div>
     </div>
 
-    <div class="footer-bar">
-                新聞台 ‧ 獨家報導
+    <!-- 第二頁：點進去顯示的梗圖 -->
+    <div id="prank-page">
+        <!-- 請將 src 替換為你的第二張梗圖檔名或連結 -->
+        <img src="prank.jpg" alt="梗圖">
     </div>
-</div>
+
+    <script>
+        function showPrank() {
+            // 隱藏封面，顯示梗圖
+            document.getElementById('cover-page').style.display = 'none';
+            document.getElementById('prank-page').style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
